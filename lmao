@@ -1,0 +1,72 @@
+local library = loadstring(game:HttpGet('https://raw.githubusercontent.com/cueshut/saves/main/criminality%20paste%20ui%20library'))()
+
+-- // Window \\ --
+local window = library.new('spaton!!!! ', 'leadmarker')
+
+-- // Tabs \\ --
+local tab = window.new_tab('rbxassetid://4483345998')
+
+
+-- // Sections \\ --
+local section = tab.new_section('misc shit')
+
+
+-- // Sector \\ --
+local sector = section.new_sector('player?!!', 'Left')
+
+-- // Elements \\ -- (Type, Name, State, Callback)
+local button = sector.element('Button', 'esp (only players)', nil, function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/UESP'))()
+    print("esp is loaded, have fun")
+end)
+
+-- // Elements \\ -- (Type, Name, State, Callback)
+local button = sector.element('Button', 'inf stamina', nil, function()
+game:GetService("RunService").RenderStepped:Connect(function()
+            repeat wait() until game.Players.LocalPlayer.Character
+            if game.Players.LocalPlayer.Character:FindFirstChild("Aspects") then
+                game.Players.LocalPlayer.Character.Aspects.Stamina.Max.Value = 99999999999999999999999999999
+                game.Players.LocalPlayer.Character.Aspects.Stamina.Value = 99999999999999999999999999999
+            end
+        end)
+    print("let's go o mario!!1")
+end)
+
+-- // Elements \\ -- (Type, Name, State, Callback)
+local button = sector.element('Button', 'insta interact)', nil, function()
+for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+    if v:IsA("ProximityPrompt") then
+        v["HoldDuration"] = 0
+    end
+end
+
+
+game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(v)
+    v["HoldDuration"] = 0
+end) 
+
+    print("touch EVERYTHING")
+end)
+
+-- // Elements \\ -- (Type, Name, State, Callback)
+local button = sector.element('Button', 'insta coin limit)', nil, function()
+local args = {
+    [1] = 55
+}
+
+game.Players.LocalPlayer.PlayerGui.GameGui.Aspects.Stats.Earnings.EarningBar.GiveMoney:FireServer(unpack(args)) 
+    print("the o bag is filled with the coins!!!!")
+end)
+
+-- // Elements \\ -- (Type, Name, State, Callback)
+local button = sector.element('Button', 'fullbright', nil, function()
+game.Lighting.FogEnd = 10000099
+game.Lighting.FogStart = 0
+game.Lighting.ClockTime = 14
+game.Lighting.Brightness = 2
+game.Lighting.GlobalShadows = false
+pcall(function()
+    game.Lighting.Bloom.Intensity = 0
+end)
+game.Lighting.Atmosphere.Density = 0
+end)
